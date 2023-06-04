@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5mj1etj3n8ey"]
+
+[ext_resource type="Texture2D" uid="uid://blglcqmrsvhle" path="res://icon.svg" id="1_fautf"]
+
+[node name="map_view" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fautf")
