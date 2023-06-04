@@ -14,3 +14,7 @@ config/name="Minecraft Mapping Tool"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1
