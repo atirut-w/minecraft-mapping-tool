@@ -1,10 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5mj1etj3n8ey"]
+[gd_scene load_steps=5 format=3 uid="uid://b5mj1etj3n8ey"]
 
 [ext_resource type="Texture2D" uid="uid://blglcqmrsvhle" path="res://icon.svg" id="1_fautf"]
 
-[node name="map_view" type="Node2D"]
+[sub_resource type="Environment" id="Environment_72e3i"]
+background_mode = 1
+background_color = Color(0.121569, 0.121569, 0.121569, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg3dg"]
+albedo_texture = ExtResource("1_fautf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_fautf")
+[sub_resource type="BoxMesh" id="BoxMesh_mhsg6"]
+material = SubResource("StandardMaterial3D_jg3dg")
+
+[node name="map_view" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_72e3i")
+
+[node name="camera_root_thing" type="Node3D" parent="."]
+transform = Transform3D(0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera_root_thing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mhsg6")
